@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+$themeBgColor : white;
+$themeColor : #000;
+$menuWidth : 240px;
+$themeFont : "Open Sans" , sans-serif;
+
+/* normalize css */
+html { line-height: 1.15; -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: $themeFont;}
+*{margin:0;padding:0;border:0;outline:0;vertical-align:baseline;background:transparent;box-sizing:border-box;}
+ul,li{margin:0;padding:0;text-decoration:none;display:block;list-style:none}
+main { display: block; } 
+hr { box-sizing: content-box; height: 0; overflow: visible; }
+pre { font-family: monospace, monospace; font-size: 1em; } 
+a { 
+    background-color: transparent; text-decoration: none; color : inherit;
+    &:hover {
+        color: inherit;
+    }
+}
+abbr[title] { border-bottom: none; text-decoration: underline; text-decoration: underline dotted; }
+b, strong { font-weight: bold; }
+code, kbd, samp { font-family: monospace, monospace;  font-size: 1em;  }
+small { font-size: 80%; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sub { bottom: -0.25em; }
+sup { top: -0.5em; }
+img {display: block; max-width: 100%;}
+button, input, optgroup, select, textarea {font-size: 100%; line-height: 1.15; margin: 0; }
+button, input { overflow: visible; }
+button, select { text-transform: none; }
+fieldset { padding: 0.35em 0.75em 0.625em; }
+legend { box-sizing: border-box; color: inherit; display: table; max-width: 100%; padding: 0; white-space: normal; }
+progress { vertical-align: baseline; }
+textarea { overflow: auto; }
+[type="checkbox"], [type="radio"] { box-sizing: border-box; padding: 0; }
+[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button { height: auto; }
+[type="search"] { -webkit-appearance: textfield;  outline-offset: -2px;  }
+[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+::-webkit-file-upload-button { -webkit-appearance: button;  font: inherit;  }
+details { display: block; }
+summary { display: list-item; }
+template { display: none; } 
+[hidden] { display: none; }
+
+
+.col-55{ flex:0 0 auto; width:20% }
+@media (min-width:576px){ .col-sm-55{ flex:0 0 auto; width:20% } }
+@media (min-width:768px){ .col-md-55{ flex:0 0 auto; width:20% } }
+@media (min-width:992px){ .col-lg-55{ flex:0 0 auto; width:20% } }
+@media (min-width:1200px){ .col-xl-55{ flex:0 0 auto; width:20% } }
+@media (min-width:1400px){ .col-xxl-55{ flex:0 0 auto; width:20% } }
+
+/* normalize ended */
+
+@keyframes rotation { 0% {-webkit-transform: rotate(0deg);transform: rotate(0deg);} 100% {-webkit-transform: rotate(360deg);transform: rotate(360deg);} }
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.89);
+    &:after {
+        content: "";
+        position: absolute;
+        left: calc(50% - 35px);
+        top: calc(50% - 35px);
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border-bottom: 4px solid #363631;
+        border-left: 4px solid transparent;
+        border-top: 4px solid #000;
+        border-right: 4px solid transparent;
+        animation: rotation 0.4s linear infinite;
+    }
+}
+
+
+
+
+.movieCard{
+    border: 0;
+    box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.2);
+    transition: all .2s ease;
+    &:hover{
+        transform: translateY(-10px);
+    }
+    .img{
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 120%;
+        img{
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    .card-title{
+        display: block;
+        min-height: 70px;
+        font-size: 1.2rem;
+        margin: 0 0 10px 0;
+    }
+    .type{
+        display: block;
+    }
+    .btn{
+
+    }
+}
+
+.img-fluid{
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}

@@ -1,0 +1,12 @@
+{
+    "API_URL": "http://www.omdbapi.com/",
+    "ENDPOINTS": {
+        "getMovies": "&s=?",
+        "getPages": "&page=?",
+        "getYear": "&y=?",
+        "getDetail": "&i=?",
+        "getPlot": "&plot=?",
+        "getType": "&type=?"
+    },
+    "AUTH_KEY": "?apikey=9dc4332"
+}
