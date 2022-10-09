@@ -18,7 +18,6 @@ function Home() {
 
   const fetchData = (fetchTitle = title, fetchPageNumber = pageNumber, fetchYear = year, fetchPlot = plot, fetchListType = listType) => {
     setLoader(1)
-
     Api.getMovies((res) => {
       dispatch({
         type: "SET_MOVIES",
@@ -33,34 +32,20 @@ function Home() {
     }, fetchTitle, fetchPageNumber, fetchYear, fetchPlot, fetchListType)
   }
 
-  const setTitle = (val) => {
-      fetchData(val)
-  }
-
+  const setTitle = (val) => fetchData(val)
   const setPage = (val) => {
     fetchData(title, val)
     setpageNumber(val)
   }
-
-  const setYear = (val) => {
-    fetchData(title, pageNumber, val)
-  }
-
-  const setPlot = (val) => {
-    fetchData(title, pageNumber, year, val)
-  }
-
-  const setType = (val) => {
-    fetchData(title, pageNumber, year, plot, val)
-  }
-
+  const setYear = (val) => fetchData(title, pageNumber, val)
+  const setPlot = (val) => fetchData(title, pageNumber, year, val)
+  const setType = (val) => fetchData(title, pageNumber, year, plot, val)
   const modalCloser = (val) => {
     dispatch({
       type: "MODAL_STATUS",
       modalShow: false
     });
   }
-
   useEffect(() => {
     fetchData()
   }, []);
