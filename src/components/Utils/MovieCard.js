@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from "prop-types";
-import { UseStateValue } from './../../store/StateProvider'
-import Api from '../../api/Api'
+import { UseStateValue } from '../../store/StateProvider'
+import Api from '../../api/Api.ts'
 
 function MovieCard(props) {
   const { Title, Poster, className, Type, ID, Year } = props;

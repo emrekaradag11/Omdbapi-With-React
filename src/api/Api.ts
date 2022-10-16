@@ -2,21 +2,18 @@
 import Config from '../config/config.json'
 
 class API {
-
+    siteUrl : string;
     constructor() {
-        this.headerOptions = {
-        }
 
-        this.siteUrl = Config.SITE_URL
+        this.siteUrl = Config.API_URL
 
     }
 
-    getService(cb, endpoint) {
+    getService(cb, endpoint:string) {
 
         const url = Config.API_URL + Config.AUTH_KEY + endpoint;
 
         fetch(url, {
-            headers: this.headerOptions,
             method: "GET",
         })
             .then((res) => {
@@ -30,11 +27,11 @@ class API {
             })
     }
 
-    getMovies(cb, title = "", page = "", year = "", plot = '', type = '') {
+    getMovies(cb, title:string = "", page:number = 1, year:number = 2022, plot:string = '', type:string = '') {
         const endpoint =
             Config.ENDPOINTS.getMovies.replace('?', title) +
-            Config.ENDPOINTS.getPages.replace('?', page) +
-            Config.ENDPOINTS.getYear.replace('?', year) +
+            Config.ENDPOINTS.getPages.replace('?', page.toString()) +
+            Config.ENDPOINTS.getYear.replace('?', year.toString()) +
             Config.ENDPOINTS.getPlot.replace('?', plot) +
             Config.ENDPOINTS.getType.replace('?', type);
 
@@ -43,7 +40,7 @@ class API {
         }, endpoint)
 
     }
-    getDetail(cb, id = "") {
+    getDetail(cb, id:string = "") {
         const endpoint = Config.ENDPOINTS.getDetail.replace('?', id);
         this.getService((res) => {
             cb({ status: 200, data: res.data })

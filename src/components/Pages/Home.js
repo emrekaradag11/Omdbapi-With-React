@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Api from '../../api/Api'
-import { UseStateValue } from './../../store/StateProvider'
-import MovieCard from './../Utils/MovieCard'
+import Api from '../../api/Api.ts'
+import { UseStateValue } from '../../store/StateProvider'
+import MovieCard from '../Utils/MovieCard'
 import Modal from 'react-bootstrap/Modal';
 
 function Home() {
@@ -11,11 +11,8 @@ function Home() {
   const pageDelimiter = 10;
   const totalPage = Math.ceil(pages / pageDelimiter);
   const yearList = [];
-  for (let i = 1900; i <= new Date().getFullYear(); i++) {
-    yearList.push(i)
-  }
-
-
+  for (let i = 1900; i <= new Date().getFullYear(); i++) yearList.push(i)
+  
   const fetchData = (fetchTitle = title, fetchPageNumber = pageNumber, fetchYear = year, fetchPlot = plot, fetchListType = listType) => {
     setLoader(1)
     Api.getMovies((res) => {
@@ -190,7 +187,6 @@ function Home() {
             </div>
           </div>
         </Modal.Body>
-        {console.log(detail)}
       </Modal>
 
 
